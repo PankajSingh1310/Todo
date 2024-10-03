@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const userRoute = require("./routes/authRoute");
+const connectDB = require("./config/db");
+
+connectDB().then(() => {
+    console.log("database connected successfully");
+})
 
 app.set("view engine", "ejs");
 app.use(express.json());
