@@ -23,7 +23,8 @@ const register = async (req, res) => {
 
         const token = jwt.sign({ email }, 'secretkey');
         res.cookie("token", token);
-        res.status(201).json({ mgs: "user registered successfully", user });
+        res.redirect(`/api/user/${user._id}/notes`);
+        // res.status(201).json({ mgs: "user registered successfully", user });
       });
     });
   } catch (error) {
@@ -44,7 +45,8 @@ const login = async (req, res) => {
       const token = jwt.sign({ email }, 'secretkey');
       res.cookie("token", token);
 
-      res.status(200).json({ mgs: "you can login", user: userExists });
+      res.redirect(`/api/user/${userExists._id}/notes`);
+    //   res.status(200).json({ mgs: "you can login", user: userExists });
     });
   } catch (error) {
     console.status(500).send(error);
@@ -54,7 +56,8 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
     try {
         res.cookie("token", "");
-        res.status(200).json({"msg": "user logged out"});
+        // res.redirect("/api/user/login");
+        res.status(200).json({"msg": "user logged out"})
     } catch (error) {
         console.status(500).send(error);
     }
