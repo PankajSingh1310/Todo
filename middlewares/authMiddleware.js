@@ -8,7 +8,7 @@ const userAuthentication = async (req, res, next) => {
     }
 
     else{
-        const data = jwt.verify(jwtToken, "secretkey");
+        const data = jwt.verify(jwtToken, process.env.JWT_KEY);
         req.user = data;
         next();
     }

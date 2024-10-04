@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -7,8 +8,9 @@ const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 
 connectDB().then(() => {
-    console.log("database connected successfully");
+    console.log("MongoDB connected successfully");
 })
+.catch((err) => console.error('MongoDB connection error:', err));
 
 app.set("view engine", "ejs");
 app.use(express.json());

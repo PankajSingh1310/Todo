@@ -21,7 +21,7 @@ const register = async (req, res) => {
           password: hash,
         });
 
-        const token = jwt.sign({ email }, 'secretkey');
+        const token = jwt.sign({ email }, process.env.JWT_KEY);
         res.cookie("token", token);
         res.redirect(`/api/user/${user._id}/notes`);
         // res.status(201).json({ mgs: "user registered successfully", user });
@@ -42,7 +42,7 @@ const login = async (req, res) => {
     bcrypt.compare(password, userExists.password, function (err, result) {
       if (!result) return res.status(401).send("Invalid Credentials");
         
-      const token = jwt.sign({ email }, 'secretkey');
+      const token = jwt.sign({ email }, process.env.JWT_KEY);
       res.cookie("token", token);
 
       res.redirect(`/api/user/${userExists._id}/notes`);
