@@ -16,14 +16,17 @@ const userNotes = async (req, res) => {
 
 const createNote = async (req, res) => {
     const {title, description} = req.body;
-    const user = req.user;
-
-    const userExist = await userModel.findOne({email: user.email}).select("-password");
 
     const note = await noteModel.create({
         title,
         description
     })
+    
+    const user = req.user;             
+    const userExist = await userModel.findOne({email: user.email}).select("-password");
+
+    userExist.notes.push(note._id);
+    await userExist.save();
 
     res.redirect(`/api/user/${userExist._id}/notes`);
 }
