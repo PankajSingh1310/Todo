@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>Hello User</h1>
+      <h1><%= user.fullname %></h1>
       <form class="logout-form" action="/api/user/logout" method="post">
         <input type="submit" value="Logout" class="btn-red" />
       </form>
@@ -26,6 +26,28 @@
           ></textarea>
           <input type="submit" class="btn-blue" value="Create note" />
         </form>
+      </div>
+
+      <div class="notes">
+        
+        <% user.notes.forEach((note) => { %> 
+            
+            <div class="note">
+                <div class="content">
+                    <h2><%= note.title %></h2>
+                    <p><%= note.description %></p>
+                </div>
+    
+                <div class="links">
+    
+                    <a href=""> Update</a>
+                    <a href=""> Delete</a>
+    
+                </div>
+            </div>
+
+        <% }) %>
+
       </div>
     </section>
   </body>

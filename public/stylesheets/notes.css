@@ -67,3 +67,27 @@ header{
     color: white;
     width: 8rem;
 }
+
+.notes{
+    margin: 2rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.note{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #25282a;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.content p{
+    margin-top: 0.3rem;
+}
+
+.links{
+    display: flex;
+    gap: 1rem;
+}

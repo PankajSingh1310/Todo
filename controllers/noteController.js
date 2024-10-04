@@ -5,7 +5,7 @@ const userNotes = async (req, res) => {
   try {
     const userId = req.params.id;
 
-    const user = await userModel.findById(userId).populate("notes");
+    const user = await userModel.findById(userId).populate("notes").select("-password");
     if (!user) return res.status(404).send("user does not exist");
 
     res.render("notes", {user});
