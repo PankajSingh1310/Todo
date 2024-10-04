@@ -39,6 +39,11 @@ const deleteNote = async (req, res) => {
   const user = req.user;             
   const userExist = await userModel.findOne({email: user.email}).select("-password");
 
+  await userModel.updateMany(
+    { notes: req.params.id },    
+    { $pull: { notes: req.params.id } } 
+  );
+
   res.redirect(`/api/user/${userExist._id}/notes`);
 }
 
