@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
+    <link rel="stylesheet" href="/stylesheets/notes.css" />
 </head>
 <body>
-    <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+
+    <form action="/api/user/logout" method="post">
+        <input type="submit" value="Logout" class="btn-red">
+    </form>
+
+    <section>
+        <div class="signup-container">
+            <div class="signup-main">
+                <div class="signup-form">
+                    <h1> Create new note</h1>
+                    <form action="/api/note/create" method="post">
+                        <input type="text" name="title" id="title" placeholder="Title" />
+                        <textarea name="description" id="description" placeholder="Description"></textarea>
+                        <input type="submit" class="btn-blue" value="Create note">
+                    </form>
+                </div>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+        </div>
+
+
+        <div class="row">
+            <div class="col s12 m6">
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">Card Title</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+    </section>
+    
 </body>
 </html>

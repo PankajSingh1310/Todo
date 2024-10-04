@@ -55,11 +55,11 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
     try {
-        res.cookie("token", "");
-        // res.redirect("/api/user/login");
-        res.status(200).json({"msg": "user logged out"})
+        res.clearCookie("token");
+        res.redirect("/login");
+        // res.status(200).json({"msg": "user logged out"})
     } catch (error) {
-        console.status(500).send(error);
+        res.status(500).send(error);
     }
 }
 

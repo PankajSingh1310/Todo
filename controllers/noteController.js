@@ -16,13 +16,16 @@ const userNotes = async (req, res) => {
 
 const createNote = async (req, res) => {
     const {title, description} = req.body;
+    const user = req.user;
+
+    const userExist = await userModel.findOne({email: user.email}).select("-password");
 
     const note = await noteModel.create({
         title,
         description
     })
 
-    res.status(201).send("note created successfully");
+    res.redirect(`/api/user/${userExist._id}/notes`);
 }
 
 module.exports = {userNotes, createNote};
