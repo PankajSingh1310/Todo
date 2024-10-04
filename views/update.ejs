@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link rel="stylesheet" href="/stylesheets/notes.css" />
+  </head>
+  <body>
+    <div class="signup-form">
+      <h1>Update your Note</h1>
+      <form action="/api/note/<%= note._id %>/update" method="post">
+        <input type="text" name="title" id="title" placeholder="Title" value="<%= note.title %>"/>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Description"
+        ><%= note.description %></textarea>
+        <input type="submit" class="btn-blue" value="Update note" />
+      </form>
+    </div>
+  </body>
+</html>
