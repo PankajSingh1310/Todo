@@ -8,10 +8,21 @@ const userNotes = async (req, res) => {
     const user = await userModel.findById(userId).populate("notes");
     if (!user) return res.status(404).send("user does not exist");
 
-    res.render("notes");
+    res.render("notes", {user});
   } catch (error) {
     res.status(500).send(error);
   }
 };
 
-module.exports = userNotes;
+const createNote = async (req, res) => {
+    const {title, description} = req.body;
+
+    const note = await noteModel.create({
+        title,
+        description
+    })
+
+    res.status(201).send("note created successfully");
+}
+
+module.exports = {userNotes, createNote};

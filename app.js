@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const userRoute = require("./routes/authRoute");
+const noteRoute = require("./routes/noteRoute");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 
@@ -24,6 +25,7 @@ app.get("/login", (req, res) => {
 })
 
 app.use("/api/user", userRoute);
+app.use("/api/note", noteRoute);
 
 const port = 3000
 app.listen(port, ()=>{
