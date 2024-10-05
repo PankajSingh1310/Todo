@@ -21,12 +21,12 @@ body {
   margin: 16vh auto;
   display: flex;
   align-items: center;
+  border-radius: 1rem;
 }
 
 .signup-main {
   width: 70%;
   margin: auto;
-  /* border: 2px solid gray; */
 }
 
 .signup-form {
@@ -58,4 +58,41 @@ form input {
 
 p {
   margin-left: 13%;
+}
+
+p a{
+  color: rgb(107, 107, 228);
+}
+
+/* mobile responsive */
+
+@media only screen and (max-width: 720px){
+  
+  .signup-container {
+    width: 90%;
+    height: 60vh;
+    margin: 15vh auto;
+    border-radius: 0.5rem;
+  }
+
+  .signup-main {
+    width: 90%;
+  }
+
+  .signup-form {
+    align-items: center;
+  }
+
+  form {
+    align-items: center;
+  }
+
+  form input {
+    width: 95%;
+    height: 3rem;
+  }
+
+  p {
+    margin-left: 0;
+  }
 }
