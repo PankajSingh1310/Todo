@@ -1,6 +1,6 @@
 const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
-var jwt = require('jsonwebtoken');
+var jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   try {
@@ -24,7 +24,6 @@ const register = async (req, res) => {
         const token = jwt.sign({ email }, process.env.JWT_KEY);
         res.cookie("token", token);
         res.redirect(`/api/user/${user._id}/notes`);
-        // res.status(201).json({ mgs: "user registered successfully", user });
       });
     });
   } catch (error) {
@@ -41,12 +40,11 @@ const login = async (req, res) => {
 
     bcrypt.compare(password, userExists.password, function (err, result) {
       if (!result) return res.status(401).send("Invalid Credentials");
-        
+
       const token = jwt.sign({ email }, process.env.JWT_KEY);
       res.cookie("token", token);
 
       res.redirect(`/api/user/${userExists._id}/notes`);
-    //   res.status(200).json({ mgs: "you can login", user: userExists });
     });
   } catch (error) {
     console.status(500).send(error);
@@ -54,13 +52,12 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-    try {
-        res.clearCookie("token");
-        res.redirect("/login");
-        // res.status(200).json({"msg": "user logged out"})
-    } catch (error) {
-        res.status(500).send(error);
-    }
-}
+  try {
+    res.clearCookie("token");
+    res.redirect("/login");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 
 module.exports = { login, register, logout };

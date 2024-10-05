@@ -27,7 +27,8 @@ form {
   gap: 1rem;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   width: 30%;
   height: 3rem;
   padding: 1rem;
@@ -38,56 +39,54 @@ form input, form textarea {
 }
 
 form textarea {
-    height: 150px;
-    resize: none;
+  height: 150px;
+  resize: none;
 }
 
-header{
-    /* border: 2px solid yellow; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: #25282a;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #25282a;
 }
 
 .logout-form {
-    /* border: 4px solid gray; */
-    display: inline;
+  display: inline;
 }
 
 .btn-red {
-    background-color: red;
-    color: white;
-    width: 8rem;
+  background-color: red;
+  color: white;
+  width: 8rem;
 }
 
-.btn-blue{
-    background-color: blue;
-    color: white;
-    width: 8rem;
+.btn-blue {
+  background-color: blue;
+  color: white;
+  width: 8rem;
 }
 
-.notes{
-    margin: 2rem;
-    display: flex;
-    gap: 3rem;
+.notes {
+  margin: 2rem;
+  display: flex;
+  gap: 3rem;
 }
 
-.note{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: #25282a;
-    padding: 2rem;
-    border-radius: 0.5rem;
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #25282a;
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
-.content p{
-    margin-top: 0.3rem;
+.content p {
+  margin-top: 0.3rem;
 }
 
-.links{
-    display: flex;
-    gap: 1rem;
+.links {
+  display: flex;
+  gap: 1rem;
 }
